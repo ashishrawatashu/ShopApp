@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_marginRight="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp"
     android:layout_height="wrap_content">
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/shop_MCV"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        app:cardCornerRadius="12dp"
+        android:layout_width="match_parent"
+        android:paddingBottom="5dp"
+        android:layout_height="162dp">
+
+        <ImageView
+            android:id="@+id/shop_IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/shop_logo"
+            android:scaleType="fitXY"/>
+
+
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/shopName_TV"
         android:gravity="center"
+        android:textStyle="bold"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="shopNAme"
-        android:textSize="25sp"/>
+        android:layout_height="wrap_content"
+        android:text="@string/shopName"
+        android:fontFamily="@font/nunito"
+        android:textSize="22sp"
+        android:textColor="@color/black"/>
+
 
 </LinearLayout>

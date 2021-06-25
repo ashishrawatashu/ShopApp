@@ -4,14 +4,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.shopapp.Activity.ShopActivity;
 import com.example.shopapp.AdapterClicks.ClickOnPosition;
 import com.example.shopapp.Models.ShopsPojo;
 import com.example.shopapp.R;
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.ArrayList;
 
@@ -42,6 +46,12 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.MyView
 
 
         myViewHolder.shopName_TV.setText(shopsPojoArrayList.get(i).getShopName());
+        if (!shopsPojoArrayList.get(i).getShopProfileImageUrl().equals("Empty")){
+            Glide.with(context)
+                    .load(shopsPojoArrayList.get(i).getShopProfileImageUrl())
+                    .placeholder(R.drawable.shop)
+                    .into(myViewHolder.shop_IV);
+        }
 
     }
 
@@ -52,12 +62,15 @@ public class ShopListAdapter extends RecyclerView.Adapter<ShopListAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         TextView shopName_TV;
+        MaterialCardView shop_MCV;
+        ImageView shop_IV;
 
         MyViewHolder(@NonNull View itemView) {
             super(itemView);
             shopName_TV = itemView.findViewById(R.id.shopName_TV);
-
-            shopName_TV.setOnClickListener(new View.OnClickListener() {
+            shop_MCV=itemView.findViewById(R.id.shop_MCV);
+            shop_IV = itemView.findViewById(R.id.shop_IV);
+            shop_MCV.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (clickOnPosition != null) {

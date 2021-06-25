@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Paths>
+    <external-path
+        name="ShopApp"
+        path="Android/data/com.example.shopapp/files/Pictures"/>
+</Paths>

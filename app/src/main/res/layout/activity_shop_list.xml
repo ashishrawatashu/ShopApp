@@ -1,16 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
+    android:orientation="vertical"
     tools:context=".Activity.ShopListActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:paddingTop="10dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+
+        <TextView
+            android:id="@+id/shops_TV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nunito"
+            android:gravity="center"
+            android:text="@string/shops"
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/shop_CV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/shop_CV" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/shop_CV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/light_grey_bg"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/shop"
+                android:visibility="visible" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cart_CV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="10dp"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/light_grey_bg"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/cart"
+                android:visibility="visible" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:background="@color/grey"
+        android:id="@+id/recycler_data"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recycler_data"/>
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/shop_list_layout" />
 
 
-</RelativeLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/logout_FAB"
+        android:layout_width="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/white"
+        android:scaleType="fitXY"
+        android:src="@drawable/exit"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

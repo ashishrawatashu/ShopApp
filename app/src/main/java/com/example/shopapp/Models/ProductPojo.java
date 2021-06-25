@@ -3,8 +3,17 @@ package com.example.shopapp.Models;
 public class ProductPojo {
     private String productName;
     private String price;
-    private String imageUrl;
+    private String imageUrl ="Empty";
     private String id;
+    private String shopName;
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
 
     public String getProductName() {
         return productName;

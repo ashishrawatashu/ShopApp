@@ -5,6 +5,15 @@ public class UserPojo {
     private String userId;
     private String userMail;
     private String userPhone;
+    private String shopStatus;
+
+    public String getShopStatus() {
+        return shopStatus;
+    }
+
+    public void setShopStatus(String shopStatus) {
+        this.shopStatus = shopStatus;
+    }
 
     public String getUserName() {
         return userName;

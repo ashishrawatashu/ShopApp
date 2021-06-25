@@ -4,30 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Activity.AddUpdateProduct">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/login_TV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/nunito"
+            android:gravity="center"
+            android:text="@string/myProducts"
+            android:textColor="#4F4F4F"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/back_arrow_CV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/back_arrow_CV" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/back_arrow_CV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/light_grey_bg"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/back_arrow"
+                android:visibility="visible" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/delete_CV"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/light_grey_bg"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/bin"
+                android:visibility="visible" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_CV"
+        android:layout_marginTop="5dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/addProductPrice_ET"
+        app:layout_constraintEnd_toEndOf="@id/addProductPrice_ET"
+        app:cardCornerRadius="10dp">
+        <ImageView
+            android:id="@+id/product_image_IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/shop_logo"
+            android:scaleType="fitXY" />
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/change_image_IV"
+        android:elevation="5dp"
+        app:layout_constraintTop_toBottomOf="@id/image_CV"
+        android:src="@drawable/camers"
+        app:layout_constraintStart_toStartOf="@id/image_CV"
+        app:layout_constraintEnd_toEndOf="@id/image_CV"/>
 
     <EditText
         android:id="@+id/addProductName_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Product Name"/>
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:hint="@string/projectName"
+        android:inputType="textCapSentences"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/change_image_IV" />
 
 
     <EditText
+        android:gravity="center"
         android:id="@+id/addProductPrice_ET"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/addProductName_ET"
-        android:hint="Product Price"/>
+        android:layout_width="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_height="70dp"
+        android:hint="@string/projectPrice"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbar"
+        app:layout_constraintTop_toBottomOf="@id/addProductName_ET" />
+
+
 
     <Button
         android:id="@+id/addProduct_BT"
-        android:text="ADD"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_bg"
+        android:text="@string/addProduct"
+        android:textAllCaps="false"
+        android:fontFamily="@font/nunito"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/addProductPrice_ET"/>
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
