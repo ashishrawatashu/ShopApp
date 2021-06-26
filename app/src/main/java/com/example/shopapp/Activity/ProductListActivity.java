@@ -178,7 +178,7 @@ public class ProductListActivity extends AppCompatActivity implements View.OnCli
         date_TV.setOnClickListener(this);
         placeOrder_BT.setOnClickListener(this);
         cancel_BT.setOnClickListener(this);
-        product_name_TV.setText(productName+getResources().getString(R.string.price)+productPrice);
+        product_name_TV.setText(productName+" "+getResources().getString(R.string.price)+productPrice);
 
         placeOrder_dialog.show();
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
