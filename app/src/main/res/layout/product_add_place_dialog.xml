@@ -59,7 +59,7 @@
                     android:gravity="center"
                     android:id="@+id/quantity_ET"
                     android:hint="@string/Quantity"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:textColor="@color/black" />
 
 

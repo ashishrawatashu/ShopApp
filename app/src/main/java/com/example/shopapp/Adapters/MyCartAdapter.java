@@ -1,6 +1,7 @@
 package com.example.shopapp.Adapters;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyViewHold
     }
 
     public void onBindViewHolder(@NonNull final MyCartAdapter.MyViewHolder myViewHolder, final int i) {
+        Resources res = context.getResources();
 
 
         int price = Integer.parseInt(userCartPojoArrayList.get(i).getPrice());
@@ -48,9 +50,10 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.MyViewHold
         int totalPrice = price * quantity;
 
         myViewHolder.productName_TV.setText(userCartPojoArrayList.get(i).getProductName());
-        myViewHolder.quantity_TV.setText(R.string.quantity + userCartPojoArrayList.get(i).getQuantity());
-        myViewHolder.shopName_TV.setText(R.string.seller + userCartPojoArrayList.get(i).getShopName());
-        myViewHolder.totalPrice_TV.setText(String.valueOf(R.string.myTotalPrice) +totalPrice);
+
+        myViewHolder.quantity_TV.setText(res.getString(R.string.quantity)+ userCartPojoArrayList.get(i).getQuantity());
+        myViewHolder.shopName_TV.setText(res.getString(R.string.seller)+ userCartPojoArrayList.get(i).getShopName());
+        myViewHolder.totalPrice_TV.setText(res.getString(R.string.myTotalPrice)+"" +totalPrice);
         if (userCartPojoArrayList.get(i).getStatus().equals("true")) {
             myViewHolder.status_TV.setText(R.string.orderDone);
             myViewHolder.cancel_TV.setVisibility(View.GONE);
